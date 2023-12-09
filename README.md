@@ -1,1 +1,3 @@
-# AI_Drools_project
+# Autorzy:
+- Dawid Drożdżyński 151867
+- Wiktoria Dębowska 151874
