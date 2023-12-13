@@ -423,9 +423,142 @@ rule "obsess"
     	insert( state );
 end
 
+rule "notunderappreciated"
+	when
+		GUI_state ( question == "Do you mind being underappreciated?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Do you like to be alone?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
 
+rule "alone"
+	when
+		GUI_state ( question == "Do you like to be alone?" && answer == "Yes" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Are you musical?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
 
+rule "musical"
+	when
+		GUI_state ( question == "Are you musical?" && answer == "Yes" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Do you like to shoot or blow things up?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
 
+rule "notalone"
+	when
+		GUI_state ( question == "Do you like to be alone?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Would you rather be in the movies?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+rule "notmovies"
+	when
+		GUI_state ( question == "Would you rather be in the movies?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Did you mind the errors in this graph?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+rule "noterrors"
+	when
+		GUI_state ( question == "Did you mind the errors in this graph?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Do you want to chose who to hang out with?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+rule "movies"
+	when
+		GUI_state ( question == "Would you rather be in the movies?" && answer == "Yes" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("You a TV or movie celebrity?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+
+rule "notcelebrity"
+	when
+		GUI_state ( question == "You a TV or movie celebrity?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Are you young, caucasian and hot?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+
+rule "younghot"
+	when
+		GUI_state ( question == "Are you young, caucasian and hot?" && answer == "Yes" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Are you male?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
+
+rule "female"
+	when
+		GUI_state ( question == "Are you male?" && answer == "No" )
+	then
+		GUI_state state = new GUI_state();
+	   	state.setQuestion("Do you like arts and crafts?");
+	   	String[] options = {"Yes","No"};
+    	state.setOptions(options);
+    	JFrame frame = new JFrame();
+    	String answer = viewQuestion(frame, state.getQuestion(), state.getOptions());
+    	state.setAnswer(answer);
+    	insert( state );
+end
 
 
 
@@ -675,4 +808,86 @@ rule "CombatDesigner"
 		JFrame frame = new JFrame();
 		showResult(frame, "Combat Designer");
 end	
-		
+
+rule "SoundDesigner"
+	when
+		GUI_state ( question == "Do you like to shoot or blow things up?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Sound Designer");
+end		
+
+rule "Composer"
+	when
+		GUI_state ( question == "Do you like to shoot or blow things up?" && answer == "No" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Composer");
+end	
+rule "OfficeIT"
+	when
+		GUI_state ( question == "Are you musical?" && answer == "No" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Office IT");
+end		
+
+rule "QualityAssurance"
+	when
+		GUI_state ( question == "Did you mind the errors in this graph?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Quality Assurance");
+end	
+rule "CommunityManager"
+	when
+		GUI_state ( question == "Do you want to chose who to hang out with?" && answer == "No" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Community Manager");
+end		
+
+rule "GuildLeader"
+	when
+		GUI_state ( question == "Do you want to chose who to hang out with?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Guild Leader");
+end	
+rule "VoiceActor"
+	when
+		GUI_state ( question == "You a TV or movie celebrity?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Voice Actor");
+end		
+
+rule "MotionCaptureActor"
+	when
+		GUI_state ( question == "Are you young, caucasian and hot?" && answer == "No" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Motion Capture Actor");
+end	
+rule "MilitaryShooterPackagingModel"
+	when
+		GUI_state ( question == "Are you male?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Military Shooter Packaging Model");
+end		
+
+rule "Cosplayer"
+	when
+		GUI_state ( question == "Do you like arts and crafts?" && answer == "Yes" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Cosplayer");
+end	
+rule "BoothBabe"
+	when
+		GUI_state ( question == "Do you like arts and crafts?" && answer == "No" )
+	then
+		JFrame frame = new JFrame();
+		showResult(frame, "Booth Babe");
+end		
