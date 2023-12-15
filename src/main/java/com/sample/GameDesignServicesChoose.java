@@ -36,17 +36,13 @@ public class GameDesignServicesChoose {
                                             options[0]);
                                             
       System.out.print( question + " - " );
-
-      if (n == 0) {
-            System.out.println( options[0] );
-            return options[0];
-      } else if (n == 1) {
-           System.out.println( options[1] );
-           return options[1];
-      } else {
-    	  System.out.println( options[2] );
-    	  return options[2];
+      if( n >=0 ) {
+	      System.out.println(options[n]);
+	      return options[n];
       }
+      
+      System.exit(0);
+      return "";
 }
     
     public static final boolean showResult(JFrame frame, String result) {
